@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="admin-themes-lab">
   <meta name="author" content="themes-lab">
-  <!-- <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png"> -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
   <title>pfSense.localdomain - Status: Dashboard</title>
   <link href="http://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet" type="text/css">
   <link href="assets/plugins/datatables/dataTables.min.css" rel="stylesheet">
@@ -14,10 +14,33 @@
   <link href="assets/css/style.css" rel="stylesheet"> <!-- MANDATORY -->
   <link href="assets/css/theme.css" rel="stylesheet"> <!-- MANDATORY -->
   <link href="assets/css/ui.css" rel="stylesheet"> <!-- MANDATORY -->
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css?v=1542803994">
+		<link rel="stylesheet" href="vendor/sortable/sortable-theme-bootstrap.css?v=1542803994">
+		<!-- <link rel="stylesheet" href="css/pfSense.css?v=1542803994">
+   -->
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="assets/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
   <![endif]-->
+  
+  <!-- <script src="widgets/javascript/cpu_graphs.js?v=1542803994"></script>
+	<script src="widgets/javascript/ipsec.js?v=1542803994"></script>
+	<script src="widgets/javascript/snort_alerts.js?v=1542369761"></script>
+	<script src="widgets/javascript/thermal_sensors.js?v=1542803994"></script>
+	<script src="widgets/javascript/traffic_graph.js?v=1542803994"></script>
+  
+  
+  <script src="vendor/jquery/jquery-1.12.0.min.js?v=1542803994"></script>
+	<script src="vendor/jquery/jquery-ui-1.11.4.min.js?v=1542803994"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js?v=1542803994"></script>
+	<script src="js/pfSense.js?v=1542803994"></script>
+	<script src="js/pfSenseHelpers.js?v=1542803994"></script>
+	<script src="js/polyfills.js?v=1542803994"></script>
+	<script src="vendor/sortable/sortable.js?v=1542803994"></script>
+ -->
+  
+  
+  
 </head>
 <!-- LAYOUT: Apply "submenu-hover" class to body element to have sidebar submenu show on mouse hover -->
 <!-- LAYOUT: Apply "sidebar-collapsed" class to body element to have collapsed sidebar -->
@@ -209,6 +232,82 @@
          
        </div>
 </div>
+
+
+
+
+<!-- <header class="header">
+
+<ol class="breadcrumb"><li>Status</li><li><a href="index.php">Dashboard</a></li></ol>		<ul class="context-links">
+
+			<li>
+			<a href="#" title="Save dashboard layout" id="btnstore" class="invisible">
+				<i class="fa fa-save icon-pointer"></i>
+			</a>
+		</li>
+	
+			<li>
+			<a onclick="$(&#39;#widget-available&#39;).toggle(360);" title="Available widgets">
+				<i class="fa fa-plus icon-pointer"></i>
+			</a>
+		</li>
+	
+	
+	
+	
+	
+			<li>
+			<a href="help.php?page=index.php" target="_blank" title="Help for items on this page">
+				<i class="fa fa-question-circle"></i>
+			</a>
+		</li>
+			</ul>
+	</header>
+ -->
+
+	
+	<div class="panel panel-default collapse out" id="widget-available">
+	<div class="panel-heading">
+		<h2 class="panel-title">Available Widgets			<span class="widget-heading-icon">
+				<a data-toggle="collapse" href="#widget-available_panel-body" id="widgets-available">
+					<i class="fa fa-minus-circle"></i>
+				</a>
+			</span>
+		</h2>
+	</div>
+	<div id="widget-available_panel-body" class="panel-body collapse in">
+		<div class="content">
+			<div class="row">
+		<div class="col-sm-3"><a href="#" id="btnadd-captive_portal_status"><i class="fa fa-plus"></i> Captive Portal Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-carp_status"><i class="fa fa-plus"></i> CARP Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-dyn_dns_status"><i class="fa fa-plus"></i> Dynamic DNS Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-log"><i class="fa fa-plus"></i> Firewall Logs</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-gateways"><i class="fa fa-plus"></i> Gateways</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-gmirror_status"><i class="fa fa-plus"></i> GEOM Mirror Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-installed_packages"><i class="fa fa-plus"></i> Installed Packages</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-interface_statistics"><i class="fa fa-plus"></i> Interface Statistics</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-interfaces"><i class="fa fa-plus"></i> Interfaces</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-ipsec"><i class="fa fa-plus"></i> IPsec</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-load_balancer_status"><i class="fa fa-plus"></i> Load Balancer Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-ntp_status"><i class="fa fa-plus"></i> NTP Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-openvpn"><i class="fa fa-plus"></i> OpenVPN</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-picture"><i class="fa fa-plus"></i> Picture</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-rss"><i class="fa fa-plus"></i> RSS</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-smart_status"><i class="fa fa-plus"></i> S.M.A.R.T. Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-services_status"><i class="fa fa-plus"></i> Services Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-squid_antivirus_status"><i class="fa fa-plus"></i> Squid Antivirus Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-system_information"><i class="fa fa-plus"></i> System Information</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-thermal_sensors"><i class="fa fa-plus"></i> Thermal Sensors</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-traffic_graphs"><i class="fa fa-plus"></i> Traffic Graphs</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-wake_on_lan"><i class="fa fa-plus"></i> Wake-on-Lan</a></div>
+				</div>
+<p style="text-align:center">Other dashboard settings are available from the <a href="system.php">General Setup</a> page.</p>
+		</div>
+	</div>
+</div>
+	
+
+
           <div class="header-right">
             <ul class="header-menu nav navbar-nav">
               <!-- BEGIN USER DROPDOWN -->
@@ -230,7 +329,7 @@
               <!-- BEGIN MESSAGES DROPDOWN -->
               <li class="dropdown" id="messages-header">
                 <a onclick="$(&#39;#widget-available&#39;).toggle(360);" title="Available widgets">
-				<i class="fa fa-plus icon-pointer"></i>
+				<i class="fa fa-plus-circle"></i>
                 </a>
                 </li>
               <!-- END MESSAGES DROPDOWN -->
@@ -254,7 +353,7 @@
 		
 		<div class="row">
 <div class="col-md-6 ui-sortable" id="widgets-col1">				<div class="panel panel-default" id="widget-system_information-0">
-					<div class="panel-heading ui-sortable-handle">
+					<div class="pfpanel-heading ui-sortable-handle">
 						<h2 class="panel-title">
 							System Information							<span class="widget-heading-icon">
 								<a data-toggle="collapse" href="#widget-system_information-0_panel-footer" class="config">
@@ -775,7 +874,7 @@ events.push(function(){
 					</div>
 				</div>
 				</div><div class="col-md-6 ui-sortable" id="widgets-col2">				<div class="panel panel-default" id="widget-netgate_services_and_support-0">
-					<div class="panel-heading ui-sortable-handle">
+					<div class="pfpanel-heading ui-sortable-handle">
 						<h2 class="panel-title">
 							Netgate Services And Support							<span class="widget-heading-icon">
 								<a data-toggle="collapse" href="#widget-netgate_services_and_support-0_panel-footer" class="config hidden">
@@ -796,7 +895,7 @@ events.push(function(){
 <br><dl class="dl-horizontal">
 <dt>Contract type</dt><dd class="text-success">Community Support<br>Community Support Only</dd>
 </dl></div>
-<div class="alert alert-info text-center"><b>NETGATE AND pfSense COMMUNITY SUPPORT RESOURCES</b></div><p style="margin-left:15px;margin-right:15px">If you purchased your&nbsp;pfSense gateway firewall appliance from Netgate and elected <b>Community Support</b> at the point of sale or installed pfSense on your own hardware, you have access to various community support resources. This includes the <a href="https://www.netgate.com/resources/" target="_blank"><b>NETGATE RESOURCE LIBRARY</b></a>. </p><p style="margin-left:15px;margin-right:15px">You also may upgrade to a Netgate Global Support subscription.&nbsp;<span style="color: rgb(17, 19, 21); font-family: verdana, arial, sans-serif;">We're always on! Our team is staffed 24x7x365 and committed to delivering enterprise-class, worldwide support at a price point that is more than competitive when compared to others in our space.&nbsp;</span></p><table border="0"><tbody><tr><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support" target="_blank"><b>Upgrade Your Support</b></a></li></ul></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support/contact-support.html#community-support" target="_blank"><b>Community Support Resources</b></a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support/frequently-asked-questions.html" target="_blank">Netgate Global Support FAQ</a></li></ul></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/training/" target="_blank">Official pfSense Training by Netgate</a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><ul><li><a href="http://www.netgate.com/our-services/professional-services.html" target="_blank">Netgate&nbsp;Professional Services</a></li></ul></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/" target="_blank">Visit&nbsp;Netgate.com</a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><p></p></td><td style="line-height: 1.42857;"><br></td></tr></tbody></table>
+<div class="alert alert-info text-center"><b>NETGATE AND pfSense COMMUNITY SUPPORT RESOURCES</b></div><p style="margin-left:15px;margin-right:15px">If you purchased your&nbsp;pfSense gateway firewall appliance from Netgate and elected <b>Community Support</b> at the point of sale or installed pfSense on your own hardware, you have access to various community support resources. This includes the <a href="https://www.netgate.com/resources/" target="_blank"><b>NETGATE RESOURCE LIBRARY</b></a>. </p><p style="margin-left:15px;margin-right:15px">You also may upgrade to a Netgate Global Support subscription.&nbsp;<span style="color: rgb(17, 19, 21); font-family: verdana, arial, sans-serif;">We're always on! Our team is staffed 24x7x365 and committed to delivering enterprise-class, worldwide support at a price point that is more than competitive when compared to others in our space.&nbsp;</span></p><table border="0"style="margin-left:auto"><tbody><tr><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support" target="_blank"><b>Upgrade Your Support</b></a></li></ul></td><td style="padding:9px"></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support/contact-support.html#community-support" target="_blank"><b>Community Support Resources</b></a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/support/frequently-asked-questions.html" target="_blank">Netgate Global Support FAQ</a></li></ul></td><td style="padding:9px"></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/training/" target="_blank">Official pfSense Training by Netgate</a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><ul><li><a href="http://www.netgate.com/our-services/professional-services.html" target="_blank">Netgate&nbsp;Professional Services</a></li></ul></td><td style="padding:9px"></td><td style="line-height: 1.42857;"><ul><li><a href="https://www.netgate.com/" target="_blank">Visit&nbsp;Netgate.com</a></li></ul></td></tr><tr><td style="line-height: 1.42857;"><p></p></td><td style="line-height: 1.42857;"><br></td></tr></tbody></table>
 <div style="margin-left:15px;margin-right:15px;"><div class="alert alert-danger" style="text-align: left;margin-bottom:3px;"><font style="text-align: justify;">If you decide to purchase a Netgate Global Support subscription, you <b>MUST</b> have your&nbsp;<b>Netgate Device ID (NDI)</b>&nbsp;from your firewall in order to validate support for this unit.&nbsp;<span style="text-align: justify;">Write down your NDI and store it in a safe place. You can purchase support <a href="https://www.netgate.com/support" target="_blank">here</a>.&nbsp;</span><br></font></div></div><div style="text-align:right;padding-right:15px;"><a href="widgets/widgets/netgate_services_and_support.widget.php?act=refresh" usepost=""><i class="fa fa-refresh"></i></a></div></div>
 <script type="text/javascript">
 //<![CDATA[
@@ -845,7 +944,7 @@ events.push(function(){
 					</div>
 				</div>
 								<div class="panel panel-default" id="widget-interfaces-0">
-					<div class="panel-heading ui-sortable-handle">
+					<div class="pfpanel-heading ui-sortable-handle">
 						<h2 class="panel-title">
 							<a href="status_interfaces.php"> Interfaces</a>							<span class="widget-heading-icon">
 								<a data-toggle="collapse" href="#widget-interfaces-0_panel-footer" class="config">
@@ -995,7 +1094,7 @@ events.push(function(){
 					</div>
 				</div>
 								<div class="panel panel-default" id="widget-snort_alerts-0">
-					<div class="panel-heading ui-sortable-handle">
+					<div class="pfpanel-heading ui-sortable-handle">
 						<h2 class="panel-title">
 							<a href="snort/snort_alerts.php"> Snort Alerts</a>							<span class="widget-heading-icon">
 								<a data-toggle="collapse" href="#widget-snort_alerts-0_panel-footer" class="config">
@@ -1058,9 +1157,239 @@ events.push(function(){
 					</div>
 				</div>
 				</div>
+				
+				
+				
+				
 </div>
 		
-	  <footer class="footer">
+	<script type="text/javascript">
+//<![CDATA[
+
+dirty = false;
+function updateWidgets(newWidget) {
+	var sequence = '';
+
+	$('.container .col-md-6').each(function(idx, col) {
+		$('.panel', col).each(function(idx, widget) {
+			var isOpen = $('.panel-body', widget).hasClass('in');
+			var widget_basename = widget.id.split('-')[1];
+
+			// Only save details for panels that have id's like'widget-*'
+			// Some widgets create other panels, so ignore any of those.
+			if ((widget.id.split('-')[0] == 'widget') && (typeof widget_basename !== 'undefined')) {
+				sequence += widget_basename + ':' + col.id.split('-')[1] + ':' + (isOpen ? 'open' : 'close') + ':' + widget.id.split('-')[2] + ',';
+			}
+		});
+	});
+
+	if (typeof newWidget !== 'undefined') {
+		// The system_information widget is always added to column one. Others go in column two
+		if (newWidget == "system_information") {
+			sequence += newWidget.split('-')[0] + ':' + 'col1:open:next';
+		} else {
+			sequence += newWidget.split('-')[0] + ':' + 'col2:open:next';
+		}
+	}
+
+	$('input[name=sequence]', $('#widgetSequence_form')).val(sequence);
+}
+
+// Determine if all the checkboxes are checked
+function are_all_checked(checkbox_panel_ref) {
+	var allBoxesChecked = true;
+	$(checkbox_panel_ref).each(function() {
+		if ((this.type == 'checkbox') && !this.checked) {
+			allBoxesChecked = false;
+		}
+	});
+	return allBoxesChecked;
+}
+
+// If the checkboxes are all checked, then clear them all.
+// Otherwise set them all.
+function set_clear_checkboxes(checkbox_panel_ref) {
+	checkTheBoxes = !are_all_checked(checkbox_panel_ref);
+
+	$(checkbox_panel_ref).each(function() {
+		$(this).prop("checked", checkTheBoxes);
+	});
+}
+
+// Set the given id to All or None button depending if the checkboxes are all checked.
+function set_all_none_button(checkbox_panel_ref, all_none_button_id) {
+	if (are_all_checked(checkbox_panel_ref)) {
+		text = "None";
+	} else {
+		text = "All";
+	}
+
+	$("#" + all_none_button_id).html('<i class="fa fa-undo icon-embed-btn"></i>' + text);
+}
+
+// Setup the necessary events to manage the All/None button and included checkboxes
+// used for selecting the items to show on a widget.
+function set_widget_checkbox_events(checkbox_panel_ref, all_none_button_id) {
+		set_all_none_button(checkbox_panel_ref, all_none_button_id);
+
+		$(checkbox_panel_ref).change(function() {
+			set_all_none_button(checkbox_panel_ref, all_none_button_id);
+		});
+
+		$("#" + all_none_button_id).click(function() {
+			set_clear_checkboxes(checkbox_panel_ref);
+			set_all_none_button(checkbox_panel_ref, all_none_button_id);
+		});
+}
+
+// ---------------------Centralized widget refresh system -------------------------------------------
+// These need to live outsie of the events.push() function to enable the widgets to see them
+var ajaxspecs = new Array();	// Array to hold widget refresh specifications (objects )
+var ajaxidx = 0;
+var ajaxmutex = false;
+var ajaxcntr = 0;
+
+// Add a widget refresh object to the array list
+function register_ajax(ws) {
+  ajaxspecs.push(ws);
+}
+// ---------------------------------------------------------------------------------------------------
+
+events.push(function() {
+	// Make panels destroyable
+	$('.container .panel-heading a[data-toggle="close"]').each(function (idx, el) {
+		$(el).on('click', function(e) {
+			$(el).parents('.panel').remove();
+			updateWidgets();
+			// Submit the form save/display all selected widgets
+			$('[name=widgetForm]').submit();
+		})
+	});
+
+	// Make panels sortable
+	$('.container .col-md-6').sortable({
+		handle: '.panel-heading',
+		cursor: 'grabbing',
+		connectWith: '.container .col-md-6',
+		update: function(){
+			dirty = true;
+			$('#btnstore').removeClass('invisible');
+		}
+	});
+
+	// On clicking a widget to install . .
+	$('[id^=btnadd-]').click(function(event) {
+		// Add the widget name to the list of displayed widgets
+		updateWidgets(this.id.replace('btnadd-', ''));
+
+		// Submit the form save/display all selected widgets
+		$('[name=widgetForm]').submit();
+	});
+
+
+	$('#btnstore').click(function() {
+		updateWidgets();
+		dirty = false;
+		$(this).addClass('invisible');
+		$('[name=widgetForm]').submit();
+	});
+
+	// provide a warning message if the user tries to change page before saving
+	$(window).bind('beforeunload', function(){
+		if (dirty) {
+			return ("One or more widgets have been moved but have not yet been saved");
+		} else {
+			return undefined;
+		}
+	});
+
+	// Show the fa-save icon in the breadcrumb bar if the user opens or closes a panel (In case he/she wants to save the new state)
+	// (Sometimes this will cause us to see the icon when we don't need it, but better that than the other way round)
+	$('.panel').on('hidden.bs.collapse shown.bs.collapse', function (e) {
+	    if (e.currentTarget.id != 'widget-available') {
+			$('#btnstore').removeClass("invisible");
+		}
+	});
+
+	// --------------------- Centralized widget refresh system ------------------------------
+	ajaxtimeout = false;
+
+	function make_ajax_call(wd) {
+		ajaxmutex = true;
+
+		$.ajax({
+			type: 'POST',
+			url: wd.url,
+			dataType: 'html',
+			data: wd.parms,
+
+			success: function(data){
+				if (data.length > 0 ) {
+					// If the session has timed out, display a pop-up
+					if (data.indexOf("SESSION_TIMEOUT") === -1) {
+						wd.callback(data);
+					} else {
+						if (ajaxtimeout === false) {
+							ajaxtimeout = true;
+							alert("The dashboard web session has timed out.\nIt will not update until you refresh the page and log-in again.");
+						}
+					}
+				}
+
+				ajaxmutex = false;
+			},
+
+			error: function(e){
+//				alert("Error: " + e);
+				ajaxmutex = false;
+			}
+		});
+	}
+
+	// Loop through each AJAX widget refresh object, make the AJAX call and pass the
+	// results back to the widget's callback function
+	function executewidget() {
+		if (ajaxspecs.length > 0) {
+			var freq = ajaxspecs[ajaxidx].freq;	// widget can specifify it should be called freq times around hte loop
+
+			if (!ajaxmutex) {
+				if (((ajaxcntr % freq) === 0) && (typeof ajaxspecs[ajaxidx].callback === "function" )) {
+				    make_ajax_call(ajaxspecs[ajaxidx]);
+				}
+
+			    if (++ajaxidx >= ajaxspecs.length) {
+					ajaxidx = 0;
+
+					if (++ajaxcntr >= 4096) {
+						ajaxcntr = 0;
+					}
+			    }
+			}
+
+		    setTimeout(function() { executewidget(); }, 1000);
+	  	}
+	}
+
+	// Kick it off
+	executewidget();
+
+	//----------------------------------------------------------------------------------------------------
+});
+//]]>
+</script>
+
+	<script src="widgets/javascript/cpu_graphs.js?v=1542803994"></script>
+	<script src="widgets/javascript/ipsec.js?v=1542803994"></script>
+	<script src="widgets/javascript/snort_alerts.js?v=1542369761"></script>
+	<script src="widgets/javascript/thermal_sensors.js?v=1542803994"></script>
+	<script src="widgets/javascript/traffic_graph.js?v=1542803994"></script>
+
+</div>		
+		
+		
+		
+		
+	 <footer class="footer">
 		<div class="container">
 			<p class="text-muted">
 				<a id="tpl" style="" href="#" title="Top of page"><i class="fa fa-caret-square-o-up pull-left"></i></a>
@@ -1069,7 +1398,7 @@ events.push(function(){
 		</div>
 	</footer>
 
-	
+	 
 </div>
         <!-- END PAGE CONTENT -->
         
