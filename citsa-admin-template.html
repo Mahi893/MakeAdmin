@@ -230,6 +230,37 @@
 			
 			
 			<li class="tm nav-parent">
+              <a href="#"><i class="fa fa-plus-circle"></i><span>Avaialble Widgets</span> <span class="fa arrow"></span></a>
+              <ul class="children collapse">
+                <li><a href="#" target="_blank">Captive Portal Status</a></li>
+<li><a href="#" target="_blank">CARP Status</a></li>
+<li><a href="#" target="_blank"> Dynamic DNS Status</a></li>
+<li><a href="#" target="_blank">Firewall Logs</a></li>
+<li><a href="#" target="_blank">Gateways</a></li>
+<li><a href="#" target="_blank">GEOM Mirror Status</a></li>
+<li><a href="#" target="_blank">Installed Packages</a></li>
+<li><a href="#" target="_blank">Interface Statistics</a></li>
+<li><a href="#" target="_blank">Interfaces</a></li>
+<li><a href="#" target="_blank">IPsec</a></li>
+<li><a href="#" target="_blank">Load Balancer Status</a></li>
+<li><a href="#" target="_blank">NTP Status</a></li>
+<li><a href="#" target="_blank">OpenVPN</a></li>
+<li><a href="#" target="_blank">Picture</a></li>
+<li><a href="#" target="_blank">RSS</a></li>
+<li><a href="#" target="_blank">S.M.A.R.T. Status</a></li>
+<li><a href="#" target="_blank">Services Status</a></li>
+<li><a href="#" target="_blank">Squid Antivirus Status</a></li>
+<li><a href="#" target="_blank">System Information</a></li>
+<li><a href="#" target="_blank">Thermal Sensors</a></li>
+<li><a href="#" target="_blank">Traffic Graphs</a></li>
+<li><a href="#" target="_blank">Wake-on-Lan</a></li>
+<li><a href="system.php" target="_blank" title="Other dashboard settings are available from this page">General Setup</a></li>
+
+</ul>
+            </li>
+			
+			
+			<li class="tm nav-parent">
               <a href="#"><i class="icon-logout" title="Logout (admin@pfSense.localdomain)"></i><span>Logout</span></a></li>
 			  
               
@@ -254,15 +285,15 @@
 
 			<li>
 			<a href="#" title="Save dashboard layout" id="btnstore" class="invisible">
-				<i class="fa fa-save icon-pointer"></i>
+				<i class="fa fa-floppy-o"></i>
 			</a>
 		</li>
 	
-			<li>
-			<a onclick="$(&#39;#widget-available&#39;).toggle(360);" title="Available widgets">
-				<i class="fa fa-plus-circle"></i>
-			</a>
-		</li>
+			<!-- <li> -->
+			<!-- <a onclick="$(&#39;#widget-available&#39;).toggle(360);" title="Available widgets"> -->
+				<!-- <i class="fa fa-plus-circle"></i> -->
+			<!-- </a> -->
+		<!-- </li> -->
 	
 	
 	
@@ -1488,6 +1519,13 @@ events.push(function() {
  -->
 
 
+	<!-- <script src="vendor/jquery/jquery-1.12.0.min.js"></script>  -->
+ <!-- <script src="vendor/jquery/jquery-ui-1.11.4.min.js"></script> -->
+	<!-- <script src="vendor/bootstrap/js/bootstrap.min.js?v=1542803994"></script> -->
+ <script src="js/pfSense.js?v=1542803994"></script>
+	 <script src="js/pfSenseHelpers.js?v=1542803994"></script> 
+	<script src="js/polyfills.js?v=1542803994"></script>
+	<script src="vendor/sortable/sortable.js?v=1542803994"></script>
  
  
  
@@ -1554,13 +1592,6 @@ events.push(function() {
 <!--pf Sense Scripts-->
 
 
-<!--	<script src="vendor/jquery/jquery-1.12.0.min.js"></script> 
- <script src="vendor/jquery/jquery-ui-1.11.4.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js?v=1542803994"></script>
- <script src="js/pfSense.js?v=1542803994"></script> -->
-	 <script src="js/pfSenseHelpers.js?v=1542803994"></script> 
-	<!-- <script src="js/polyfills.js?v=1542803994"></script> -->
-	<!-- <script src="vendor/sortable/sortable.js?v=1542803994"></script> -->
  
 	
 
